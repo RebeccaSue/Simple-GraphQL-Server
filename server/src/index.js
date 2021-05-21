@@ -1,22 +1,35 @@
-const {ApolloServer, MockList} = require('apollo-server');
+const {ApolloServer} = require('apollo-server');
+const {ApolloGateway} = require('@apollo/gateway');
+const {federatedSchema} = require ('@apollo/federation');
 const typeDefs = require('./schema');
-const { readFileSync } = require('fs');
+const {fs}  = require('fs');
+const {usersData} = require('../data/user.json');
+const {postsData} = require('../data/post.json');
 
-const mocks = {
-    Query: () => ({
-        postsList: () => new MockPostList([]), 
-        usersList: () => new MockUsersList([]),
-        commentsList: () => new MockCommentsList([]),
-    })
+
+
+const resolvers = {
+    Query: {
+        fetchAllUsers() {
+            return usersData;
+        },    
+        fetchAllPosts() {
+            return postsData;
+        },
+        fetchUser(_, { id }) {
+            const found = usersData.find(element => element.id === id);
+            return found;
+        }, 
+        fetchPost(_, { id }) {
+            const found = postsData.find(element => element.id === id);
+            return found;
+        }
+    }
 
 }
 
-
 const server = new ApolloServer({
-    // Subscriptions are not currently supported in Apollo Federation
-    subscriptions: false,
-    typeDefs,
-    mocks: true
+    typeDefs, 
 });
 
 server.listen().then(() => {
@@ -37,4 +50,5 @@ server.listen().then(() => {
             enter "user:" + the id of the post
             for example: post:asfagsdf-sga-asdf-9382-sadcaserfewa1wea
     `);
+
   });

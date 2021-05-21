@@ -3,8 +3,10 @@ const {gql} = require('apollo-server');
 const typeDefs = gql`
 
 type Query {
+    
     "postsList: contains all of the posts in the server"
     postsList: [Post!]!
+
     "usersList: contains all of the user information in the server"
     usersList: [User!]!
 }
