@@ -21,8 +21,6 @@ export const fetchAllUsers = gql`
       }
     }
   }
-
-
 `;
 
 export const fetchAllPosts = gql `

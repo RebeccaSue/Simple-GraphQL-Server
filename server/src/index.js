@@ -18,6 +18,19 @@ const server = new ApolloServer({
 
 server.listen().then(() => {
     console.log(`
-      Testing...
+      Please choose one of the options:
+
+        - Print all of the user information
+            enter "fetch-all-users"
+
+        - Print all of the post information
+            enter "fetch-all-posts"
+
+        - Print a user's information
+            enter "user:" + the id of the user
+            for example: users:18f17c7b-bb10-4081-8e2b-16b424d2b3b9
+
+        - Print a post's information
+            enter "post:asfagsdf-sga-asdf-9382-sadcaserfewa1wea"
     `);
   });
