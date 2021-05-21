@@ -31,6 +31,7 @@ server.listen().then(() => {
             for example: users:18f17c7b-bb10-4081-8e2b-16b424d2b3b9
 
         - Print a post's information
-            enter "post:asfagsdf-sga-asdf-9382-sadcaserfewa1wea"
+            enter "user:" + the id of the post
+            for example: post:asfagsdf-sga-asdf-9382-sadcaserfewa1wea
     `);
   });
