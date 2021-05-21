@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index",
-    "posts": "nodemon src/posts"
+    "posts": "nodemon src/posts", 
+    "users": "nodemon src/users"
   },
   "dependencies": {
     "@apollo/gateway": "^0.28.1",

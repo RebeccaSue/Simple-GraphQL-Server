@@ -1,18 +1,8 @@
 const {ApolloServer} = require('apollo-server');
-const {ApolloGateway} = require('@apollo/gateway');
 const {federatedSchema} = require ('@apollo/federation');
 const typeDefs = require('./schema');
 const {fs}  = require('fs');
 const {postsData} = require('../data/post.json');
-
-
-const gateway = new ApolloGateway({
-    serviceList: [
-        { name: 'users', url: 'http://localhost:4001' },
-        // Define additional services here
-      ],
-});
-
 
 const resolvers = {
     Query: { 
@@ -28,7 +18,8 @@ const resolvers = {
 }
 
 const server = new ApolloServer({
-    typeDefs
+    typeDefs,
+    resolvers
 });
 
 server.listen({port: 4001}).then(() => {
@@ -39,7 +30,7 @@ server.listen({port: 4001}).then(() => {
             enter fetch-all-posts
 
         - Print a post's information
-            enter "user:" + the id of the post
+            enter "post:" + the id of the post
             for example: post:asfagsdf-sga-asdf-9382-sadcaserfewa1wea
     `);
 
