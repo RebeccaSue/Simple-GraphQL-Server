@@ -10,7 +10,8 @@
     "@apollo/gateway": "^0.28.1",
     "apollo-datasource-rest": "^0.9.6",
     "apollo-server": "^2.24.1",
-    "graphql": "^15.5.0"
+    "graphql": "^15.5.0",
+    "prompt-sync": "^4.2.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
