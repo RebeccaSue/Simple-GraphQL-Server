@@ -3,13 +3,15 @@ import { Layout } from '../components';
 import { gql } from '@apollo/client';
 
 export const fetchUser = gql`
-query ExampleQuery {
-  postsList {
-    id
-    author {
+  query fetchAllPosts {
+    postsList {
       id
-      name
-      joinDate {
+      author {
+        id
+        name
+      }
+      title
+      date {
         year
         month
         day
@@ -17,12 +19,33 @@ query ExampleQuery {
         minute
         second
       }
-      avatar
-      pastPosts
     }
   }
-}
+
+
 `;
+
+
+export const fetchPost = gql `
+  query fetchAllPosts {
+    postsList {
+      id
+      author {
+        id
+        name
+      }
+      title
+      date {
+        year
+        month
+        day
+        hour
+        minute
+        second
+      }
+    }
+  }
+`
 
 
 
