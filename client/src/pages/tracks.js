@@ -2,16 +2,12 @@ import React from 'react';
 import { Layout } from '../components';
 import { gql } from '@apollo/client';
 
-export const fetchUser = gql`
-  query fetchAllPosts {
-    postsList {
+export const fetchAllUsers = gql`
+  query fetchAllUsers {
+    usersList {
       id
-      author {
-        id
-        name
-      }
-      title
-      date {
+      name
+      joinDate {
         year
         month
         day
@@ -19,22 +15,23 @@ export const fetchUser = gql`
         minute
         second
       }
+      avatar
+      pastPosts {
+        id
+      }
     }
   }
 
 
 `;
 
-
-export const fetchPost = gql `
+export const fetchAllPosts = gql `
   query fetchAllPosts {
     postsList {
       id
-      author {
-        id
-        name
-      }
+      author
       title
+      body
       date {
         year
         month
