@@ -1,5 +1,6 @@
 const {ApolloServer, MockList} = require('apollo-server');
 const typeDefs = require('./schema');
+const { readFileSync } = require('fs');
 
 const mocks = {
     Query: () => ({
@@ -12,6 +13,8 @@ const mocks = {
 
 
 const server = new ApolloServer({
+    // Subscriptions are not currently supported in Apollo Federation
+    subscriptions: false,
     typeDefs,
     mocks: true
 });
