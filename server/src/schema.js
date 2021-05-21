@@ -3,9 +3,10 @@ const {gql} = require('apollo-server');
 const typeDefs = gql`
 
 type Query {
+    "postsList: contains all of the posts in the server"
     postsList: [Post!]!
+    "usersList: contains all of the user information in the server"
     usersList: [User!]!
-    commentsList: [Comment!]
 }
   
 type User {
@@ -16,7 +17,7 @@ type User {
     "name: the display name, can't be null"
     name: String!
 
-    "joinDate: the registered date"
+    "joinDate: account registration date, can't be null"
     joinDate: Date!
 
     "avatar: the url of the profile photo"
@@ -31,8 +32,8 @@ type Post {
     "id: the unique id of this post, can't be null"
     id: ID!
 
-    "author: the person who posted this, can't be null"
-    author: User!
+    "author: the id of the person who posted this, can't be null"
+    author: ID!
 
     "title: the title of this post, can't be null"
     title: String!
@@ -40,29 +41,7 @@ type Post {
     "body: the body of this post"
     body: String
 
-    "comment: an array of the ID of the comment of this post"
-    comment: [ID!]
-    
     "date: the time when this post was uploaded" 
-    date: Date!
-}
-
-
-type Comment {
-
-    "id: the unique id of this comment, can't be null"
-    id: ID!
-
-    "author: the person who posted this, can't be null"
-    author: ID!
-
-    "postid: the id indicates which post this comment belongs to, can't be null"
-    postid: ID!
-
-    "body: the body of this comment"
-    body: String
-
-    "date: the time when this comment was uploaded"
     date: Date!
 }
 
