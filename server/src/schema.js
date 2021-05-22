@@ -7,7 +7,7 @@ type Query {
     "return the user's information based on the provided id"
     fetchUser(id: ID!): User
 
-    "return all of the users's information"
+    "return all of the users' information"
     fetchAllUsers: [User]
 
     "return the post's information based on the provided id"
